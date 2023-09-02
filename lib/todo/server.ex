@@ -5,8 +5,8 @@ defmodule Todo.Server do
     {:ok, {name, Todo.Database.get(name) || Todo.List.new()}}
   end
 
-  def start(name) do
-    GenServer.start(Todo.Server, name)
+  def start_link(name) do
+    GenServer.start_link(Todo.Server, name)
   end
   
   def add_entry(pid, %Todo.Entry{} = new_entry) do
