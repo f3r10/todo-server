@@ -54,7 +54,6 @@ defmodule Todo.ProcessRegistry do
   end
 
   def handle_info({:DOWN, _, :process, pid, _}, process_registry) do
-    IO.puts("down worker #{inspect pid}")
     {:noreply, deregister_pid(process_registry, pid)}
   end
 

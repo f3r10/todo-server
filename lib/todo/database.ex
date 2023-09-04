@@ -19,7 +19,6 @@ defmodule Todo.Database do
   end
 
   def get_worker(key) do
-    IO.puts("get_worker for key: #{key}")
     :erlang.phash2(key, @pool_size) + 1
   end
 
